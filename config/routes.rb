@@ -3,8 +3,10 @@ Rails.application.routes.draw do
   root "users#index"
 
   # creates routes for users index action
-  resources :users, only: [:index]
+  resources :users do
+    resources :tasks, only: [:index, :new, :create]
+  end
 
   # creates routes for tasks index action
-  resources :tasks, only: [:index]
+  resources :tasks, only: [:show, :edit, :update, :destroy]
 end
