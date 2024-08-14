@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # sets up route to users index page
+  root "users#index"
 
-  # Defines the root path route ("/")
-  # root "articles#index"
+  # creates routes for users index action
+  resources :users, only: [:index]
+
+  # creates routes for tasks index action
+  resources :tasks, only: [:index]
 end
