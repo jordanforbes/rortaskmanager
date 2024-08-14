@@ -1,0 +1,4 @@
+<h1>New Task for <%= @user.name %></h1>
+<%= render 'form', user: @user, task: @task %>
+
+<%= link_to 'Back', user_tasks_path(@user) %>

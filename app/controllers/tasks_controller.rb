@@ -6,13 +6,19 @@ class TasksController < ApplicationController
 
   def new
     @user = User.find(params[:user_id])
+    @task = @user.tasks.new
+  end
+
+  def create
+    @user = User.find(params[:user_id])
     @task = @user.tasks.new(task_params)
     if @task.save
-      redirect_to user_tasks_path(@user), notice: "Task was successfully created"
+      redirect_to user_tasks_path(@user), notice: "Task was successfully created."
     else
       render :new
     end
   end
+
 
   def show
     @task = Task.find(params[:id])
